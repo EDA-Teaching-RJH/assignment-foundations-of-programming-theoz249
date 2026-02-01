@@ -12,6 +12,10 @@ def init_database():
     print(id)
 
 def display_menu():
+    Student = input("Input your username: ")
+    time.sleep(0.1)
+    print("wlecome", Student)
+    time.sleep(0.3)
     while True:
         print("\n--- MENU ---")
         print("1. View database")
@@ -23,7 +27,11 @@ def display_menu():
         print("7. Add Crew")
         print("8. Remove Crew")
         print("9. Analyze Data")
-        print("10. Exit")       
+        print("10. Exit")
+
+        option = input("Select option")
+        if option == "1"  or option  == "view database ":
+            
 
 
 loading = 0
