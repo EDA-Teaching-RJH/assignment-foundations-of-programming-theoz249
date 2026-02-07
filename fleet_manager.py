@@ -28,11 +28,15 @@ def display_menu():
         print("8. calculate officers")
         print("9. Exit")
         print("---------\n")
-        option = input("Select option")
+        option = input("Select option  ")
         if option == "1":
             add_member()
         elif option == "2":
             remove_member()
+        elif option == "3":
+            update_rank()
+        else:
+            init_database()
 
 
 
@@ -73,10 +77,11 @@ def update_rank():
     if rid in id :
         rids = id.index(rid)
         rank.pop(rids)
-        newRank = input("what is the new Rank of", name[rids])
+        newRank = input("what is the new Rank of").title()
         if newRank == "Captain" or newRank == "Commander" or newRank == "lt.Commander" or newRank == "Lieutenant" or newRank == "Ensign":
             rida = rids - 1
             rank.insert(rida, newRank)
+            print("successfully updated")
         else:
             print("invalid rank")
     else:
@@ -91,4 +96,3 @@ while loading < 5 :
         print("Systems online")
 init_database()
 display_menu()
-init_database()
