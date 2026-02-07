@@ -42,7 +42,7 @@ def add_member():
     new_div = input("Division: ").title()
     new_id = str(input("ID: "))
     if new_id not in id :
-        if rank == "Captain" or rank == "Commander" or rank == "lt.Commander" or rank == "Lieutenant" or rank == "Ensign":
+        if new_rank == "Captain" or new_rank == "Commander" or new_rank == "lt.Commander" or new_rank == "Lieutenant" or new_rank == "Ensign":
             name.append(new_name)
             rank.append(new_rank)
             div.append(new_div)
@@ -64,13 +64,23 @@ def remove_member():
             id.pop(idx)
             print("Removed.")
         else:
-            print("id doesnt match")
+            print("ID doesnt match")
     else:
         print("Invalid action.")
 
-
-
-
+def update_rank():
+    rid = input("ID to update: ")
+    if rid in id :
+        rids = id.index(rid)
+        rank.pop(rids)
+        newRank = input("what is the new Rank of", name[rids])
+        if newRank == "Captain" or newRank == "Commander" or newRank == "lt.Commander" or newRank == "Lieutenant" or newRank == "Ensign":
+            rida = rids - 1
+            rank.insert(rida, newRank)
+        else:
+            print("invalid rank")
+    else:
+        print("invlid ID")
 
 loading = 0
 while loading < 5 :
@@ -81,3 +91,4 @@ while loading < 5 :
         print("Systems online")
 init_database()
 display_menu()
+init_database()
