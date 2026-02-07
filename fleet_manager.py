@@ -27,11 +27,50 @@ def display_menu():
         print("7. Payroll")
         print("8. calculate officers")
         print("9. Exit")
-        print("\n---------")
+        print("---------\n")
         option = input("Select option")
-        if option == "1"  or option  == "view database ":
-            
-def add_member
+        if option == "1":
+            add_member()
+        elif option == "2":
+            remove_member()
+
+
+
+def add_member():
+    new_name = input("Name: ").title()
+    new_rank = input("Rank: ").title()
+    new_div = input("Division: ").title()
+    new_id = str(input("ID: "))
+    if new_id not in id :
+        if rank == "Captain" or rank == "Commander" or rank == "lt.Commander" or rank == "Lieutenant" or rank == "Ensign":
+            name.append(new_name)
+            rank.append(new_rank)
+            div.append(new_div)
+            id.append(new_id)
+            print("Crew member added.")
+        else:
+            print("invalid rank")
+    else:
+        print("invalid id")
+
+def remove_member():
+    if len(id) != 0 :
+        rem = input("ID to remove: ")
+        if rem in id :
+            idx = id.index(rem)
+            name.pop(idx)
+            rank.pop(idx)
+            div.pop(idx)
+            id.pop(idx)
+            print("Removed.")
+        else:
+            print("id doesnt match")
+    else:
+        print("Invalid action.")
+
+
+
+
 
 loading = 0
 while loading < 5 :
@@ -41,3 +80,4 @@ while loading < 5 :
     if loading  == 5 :
         print("Systems online")
 init_database()
+display_menu()
