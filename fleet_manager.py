@@ -1,6 +1,6 @@
 import time
 name = ["Picard", "Riker", "Data", "Worf", "Spock"]
-rank = ["Captain", "Commander", "Lt. Commander", "Lieutenant", "Commader"]
+rank = ["Captain", "Commander", "Lt. Commander", "Lieutenant", "Commander"]
 div = ["Command", "Command", "Operations", "Security", "Science"]
 id = ["0000", "1111", "2222", "3333", "4444"]
 
@@ -35,8 +35,10 @@ def display_menu():
             remove_member()
         elif option == "3":
             update_rank()
-        else:
-            init_database()
+        elif option == "4":
+            display_roster()
+        elif option == "5":
+            search_crew()
 
 
 
@@ -86,6 +88,33 @@ def update_rank():
             print("invalid rank")
     else:
         print("invlid ID")
+    
+def display_roster():
+            print("Current Crew List:")
+            for i in range(len(name)):
+                print(name[i] + " - "  + rank[i] + " - "  + div[i]) 
+
+
+def search_crew():
+    searchTerm = input("search for a term in the crew: ").title()
+    if searchTerm in rank:
+        x = rank.index(searchTerm)
+        y = rank.count(searchTerm) - 1
+        z = 0
+        print(name[x]) 
+        while z < y :
+            x =  rank.index(searchTerm, x + 1)
+            print(name[x]) 
+            z += 1 
+    if searchTerm in div:
+        x = div.index(searchTerm)
+        y = div.count(searchTerm) - 1
+        z = 0
+        print(name[x]) 
+        while z < y :
+            x =  div.index(searchTerm, x + 1)
+            print(name[x]) 
+            z += 1      
 
 loading = 0
 while loading < 5 :
