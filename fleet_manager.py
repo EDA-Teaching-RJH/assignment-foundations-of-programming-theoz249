@@ -180,9 +180,9 @@ def payroll():
 def count_officers():
     count = 0        
     for r in rank:
-        if rank == "Captain" or rank == "Commander": 
+        if r == "Captain" or r == "Commander": 
             count +=  1
-            print("High ranking officers: ", count)
+    print("High ranking officers: ", count)
 loading = 0
 while loading < 5 :
     print("System loading" , loading)
