@@ -1,4 +1,4 @@
-import time
+
 name = ["Picard", "Riker", "Data", "Worf", "Spock"]
 rank = ["Captain", "Commander", "Lt. Commander", "Lieutenant", "Commander"]
 div = ["Command", "Command", "Operations", "Security", "Science"]
@@ -13,9 +13,7 @@ def init_database():
 
 def display_menu():
     Student = input("Input your username: ")
-    time.sleep(0.1)
     print("wlecome", Student)
-    time.sleep(0.3)
     while True:
         print("\n--- MENU ---")
         print("1. Add Crew")
@@ -28,7 +26,7 @@ def display_menu():
         print("8. calculate officers")
         print("9. Exit")
         print("---------\n")
-        option = input("Select option  ")
+        option = input("Select option: ")
         if option == "1":
             add_member()
         elif option == "2":
@@ -39,7 +37,17 @@ def display_menu():
             display_roster()
         elif option == "5":
             search_crew()
-
+        elif option == "6":
+            division_fylter()
+        elif option == "7":
+            payroll()
+        elif option == "8":
+            count_officers()
+        elif option == "9":
+            print("Shutting down.")
+            break  
+        else:
+            print("Invalid.")
 
 
 def add_member():
@@ -48,7 +56,7 @@ def add_member():
     new_div = input("Division: ").title()
     new_id = str(input("ID: "))
     if new_id not in id :
-        if new_rank == "Captain" or new_rank == "Commander" or new_rank == "lt.Commander" or new_rank == "Lieutenant" or new_rank == "Ensign":
+        if new_rank == "Captain" or new_rank == "Commander" or new_rank == "Lt.Commander" or new_rank == "Lieutenant" or new_rank == "Ensign":
             name.append(new_name)
             rank.append(new_rank)
             div.append(new_div)
@@ -106,7 +114,7 @@ def search_crew():
             x =  rank.index(searchTerm, x + 1)
             print(name[x]) 
             z += 1 
-    if searchTerm in div:
+    elif searchTerm in div:
         x = div.index(searchTerm)
         y = div.count(searchTerm) - 1
         z = 0
@@ -114,8 +122,67 @@ def search_crew():
         while z < y :
             x =  div.index(searchTerm, x + 1)
             print(name[x]) 
-            z += 1      
+            z += 1  
 
+def division_fylter() :    
+    fylteropt = input("what division you want to filter: ").title()
+    if fylteropt in div:
+        if fylteropt = "Command":
+            x = div.index(fylteropt)
+            y = div.count(fylteropt) - 1
+            z = 0
+            print(name[x]) 
+            while z < y :
+                x =  div.index(fylteropt, x + 1)
+                print(name[x]) 
+                z += 1  
+        elif fylteropt = "Operations":
+            x = div.index(fylteropt)
+            y = div.count(fylteropt) - 1
+            z = 0
+            print(name[x]) 
+            while z < y :
+                x =  div.index(fylteropt, x + 1)
+                print(name[x]) 
+                z += 1              
+        elif fylteropt = "Security":
+            x = div.index(fylteropt)
+            y = div.count(fylteropt) - 1
+            z = 0
+            print(name[x]) 
+            while z < y :
+                x =  div.index(fylteropt, x + 1)
+                print(name[x]) 
+                z += 1  
+        elif fylteropt =  "Science":
+            x = div.index(fylteropt)
+            y = div.count(fylteropt) - 1
+            z = 0
+            print(name[x]) 
+            while z < y :
+                x =  div.index(fylteropt, x + 1)
+                print(name[x]) 
+                z += 1
+        else:
+            print("invalid div")  
+    else:
+        print("Invalid input")
+
+def payroll():
+    capCost = rank.count("Captain") * 1000
+    commCcost = rank.count("Commander") * 800
+    ltcommost = rank.count("Lt.Commander") * 600
+    ltCost = rank.count("Lieutenant") * 400
+    enCost = rank.count("Ensign") * 200
+    cost = capCost + commCcost + ltcommost + ltCost + enCost
+    print("the total cost of the crew is: ", str(cost) + "$")
+
+def count_officers():
+    count = 0        
+    for rank in r:
+        if rank == "Captain" or rank == "Commander": 
+            count +=  1
+            print("High ranking officers: ", count)
 loading = 0
 while loading < 5 :
     print("System loading" , loading)
