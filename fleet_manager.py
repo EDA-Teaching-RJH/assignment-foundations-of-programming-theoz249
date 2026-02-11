@@ -127,7 +127,7 @@ def search_crew():
 def division_fylter() :    
     fylteropt = input("what division you want to filter: ").title()
     if fylteropt in div:
-        if fylteropt = "Command":
+        if fylteropt == "Command":
             x = div.index(fylteropt)
             y = div.count(fylteropt) - 1
             z = 0
@@ -136,7 +136,7 @@ def division_fylter() :
                 x =  div.index(fylteropt, x + 1)
                 print(name[x]) 
                 z += 1  
-        elif fylteropt = "Operations":
+        elif fylteropt == "Operations":
             x = div.index(fylteropt)
             y = div.count(fylteropt) - 1
             z = 0
@@ -145,7 +145,7 @@ def division_fylter() :
                 x =  div.index(fylteropt, x + 1)
                 print(name[x]) 
                 z += 1              
-        elif fylteropt = "Security":
+        elif fylteropt == "Security":
             x = div.index(fylteropt)
             y = div.count(fylteropt) - 1
             z = 0
@@ -154,7 +154,7 @@ def division_fylter() :
                 x =  div.index(fylteropt, x + 1)
                 print(name[x]) 
                 z += 1  
-        elif fylteropt =  "Science":
+        elif fylteropt ==  "Science":
             x = div.index(fylteropt)
             y = div.count(fylteropt) - 1
             z = 0
