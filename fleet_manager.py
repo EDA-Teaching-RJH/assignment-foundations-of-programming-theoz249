@@ -179,7 +179,7 @@ def payroll():
 
 def count_officers():
     count = 0        
-    for rank in r:
+    for r in rank:
         if rank == "Captain" or rank == "Commander": 
             count +=  1
             print("High ranking officers: ", count)
