@@ -187,7 +187,6 @@ loading = 0
 while loading < 5 :
     print("System loading" , loading)
     loading += 1
-    time.sleep(0.1)
     if loading  == 5 :
         print("Systems online")
 init_database()
